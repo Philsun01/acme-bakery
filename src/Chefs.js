@@ -1,8 +1,22 @@
 import React from 'react';
 
-const Chefs = ()=> {
+const Chefs = ({chefs})=> {
+
     return(
-        <div> This is where chefs are</div>
+        <div>
+            <h2> Chef list here</h2>
+            <ul>
+            {
+                chefs.map( (chef)=>{
+                    return (
+                    <li key={chef.id}>
+                        {chef.name}
+                    </li>
+                    );
+                })
+            }
+            </ul>
+        </div>
     )
 };
 

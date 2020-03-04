@@ -36,13 +36,11 @@ const App = ()=> {
         }
     ]);
 
-    //console.log(recipes);
-
     return (
         <div>
             <h1>React App Loaded</h1>
             <Chefs chefs = {chefs}  />
-            <Recipes />
+            <Recipes recipes = {recipes} />
 
         </div>
     )

@@ -35,11 +35,16 @@ const sync = async() => {
     client.query(SQL);
 }
 
-const test = ()=> {
-    console.log("DB LINKED")
+const readChefs = async() => {
+    return (await client.query('SELECT * FROM chefs')).rows;
+}
+
+const readRecipes = async() => {
+    return (await client.query('SELECT * FROM recipes')).rows;
 }
 
 module.exports = {
     sync,
-    test
+    readChefs,
+    readRecipes
 }

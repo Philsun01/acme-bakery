@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "./node_modules/.bin/webpack",
-    "build:dev": "npm run build -- --mode=development --watch"
+    "build:dev": "npm run build -- --mode=development --watch",
+    "start:dev": "nodemon server.js --ignore dist/ --ignore src/ & npm run build:dev"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,7 @@
   },
   "dependencies": {
     "@babel/preset-react": "^7.8.3",
+    "express": "^4.17.1",
     "pg": "^7.18.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0"

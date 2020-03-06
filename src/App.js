@@ -3,6 +3,7 @@ import Chefs from './chefs';
 import Recipes from './recipes';
 import axios from 'axios';
 import CreateChef from './CreateChef';
+
 console.log( 'App file loaded');
 
 const App = ()=> {
@@ -25,7 +26,7 @@ const App = ()=> {
             <h1>React App Loaded</h1>
             <Chefs chefs = {chefs}  />
             <Recipes recipes = {recipes} />
-            <CreateChef setChefs = {setChefs} />
+            <CreateChef chefs = {chefs} setChefs = {setChefs} />
 
         </div>
     )

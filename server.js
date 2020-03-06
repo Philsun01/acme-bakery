@@ -18,7 +18,8 @@ app.get('/api/chefs', (req, res, next)=>{
 });
 
 app.post('/api/chefs', (req, res, next)=> {
-    db.createChefs(req.body)
+    console.log(req.body);
+    db.createChef(req.body)
         .then(data => res.send(data))
         .catch(next);
 });

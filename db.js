@@ -45,11 +45,12 @@ const readRecipes = async() => {
 
 const createChef = async(chef) => {
     const SQL = `INSERT INTO chefs(name) values($1) returning *`;
-    return (await client.query(SQL,[chef])).rows[0];
+    return (await client.query(SQL,[chef.name])).rows[0];
 }
 
 module.exports = {
     sync,
     readChefs,
-    readRecipes
+    readRecipes,
+    createChef
 }

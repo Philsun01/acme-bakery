@@ -9,13 +9,19 @@ app.use('/dist', express.static(path.join(__dirname, 'dist')));
 
 app.get('/', (req,res,next)=>{
     res.sendFile(path.join(__dirname,'index.html'));
-})
+});
 
 app.get('/api/chefs', (req, res, next)=>{
     db.readChefs()
-        .then( data => res.send(data))
+        .then(data => res.send(data))
         .catch(next);
-})
+});
+
+app.post('/api/chefs', (req, res, next)=> {
+    db.createChefs(req.body)
+        .then(data => res.send(data))
+        .catch(next);
+});
 
 app.get('/api/recipes', (req, res, next)=>{
     db.readRecipes()

@@ -10,7 +10,7 @@ const Chefs = ({chefs})=> {
                 chefs.map( (chef)=>{
                     return (
                     <li key={chef.id}>
-                        {chef.name}
+                        {chef.name} - ID: {chef.id}
                     </li>
                     );
                 })

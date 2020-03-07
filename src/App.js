@@ -15,9 +15,11 @@ const App = ()=> {
     const [params, setParams ] = useState(qs.parse(window.location.hash.slice(1)));
 
     useEffect(()=> {
+        console.log('Current params:');
         console.log(params);
       window.addEventListener('hashchange', ()=> {
         setParams(qs.parse(window.location.hash.slice(1)));
+        console.log('Updated params:');
         console.log(qs.parse(window.location.hash.slice(1)))
       });
     }, []);
@@ -28,6 +30,7 @@ const App = ()=> {
     const updateChef = async(chef) => {
         const updated = (await axios.put(`/api/chefs/${chef.id}`,chef)).data;
         setChefs([updated, ...chefs.filter(chef=>chef.id!==updated.id)]);
+        location.hash = '#';
     }
 
     useEffect(()=>{
@@ -41,7 +44,7 @@ const App = ()=> {
  
     return (
         <div>
-            <h1><a href={'#view=home'}> Acme Recipes</a></h1> 
+            <h1><a href={'#'}> Acme Recipes</a></h1> 
              
             {view === 'chef' && <ChefEdit updateChef = {updateChef} chef = {chefs.find(chef=>chef.id===params.id)}/>}
             

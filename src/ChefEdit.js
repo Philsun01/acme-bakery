@@ -4,8 +4,9 @@ const ChefEdit = ({updateChef, chef})=> {
     const [name, setName] = useState('');
 
     useEffect( ()=> {
+        console.log('On ChefEdit Load:');
         console.log(chef);
-        if(chef.id){
+        if(chef){
             setName(chef.name);
         }
     },[chef])

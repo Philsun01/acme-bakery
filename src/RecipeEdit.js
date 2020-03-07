@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 
-const RecipeEdit = ({recipe})=> {
+const createRecipe = ({recipes, setRecipes, chefs})=> {
 
     const [newRecipe, setNewRecipe] = useState('');
 
@@ -35,4 +35,4 @@ const RecipeEdit = ({recipe})=> {
     )
 }
 
-export default RecipeEdit;
+export default createRecipe;

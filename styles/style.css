@@ -7,5 +7,9 @@ body {
 }
 
 .card {
-    width: 20rem
+    width: 20rem;
+}
+
+.card-container {
+    width: 25rem;
 }

@@ -16,7 +16,7 @@ const CreateChef = ({chefs, setChefs})=>{
     };
 
     return (
-        <div className='card'>
+        <div className='card container-sm'>
             <h2>Add New Chef</h2>
              <form onSubmit = {onSubmit}>
                 <div className = 'form-group'>

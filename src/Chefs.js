@@ -12,7 +12,7 @@ const Chefs = ({chefs, setChefs, recipes})=> {
     return(
         <div className='container-sm d-flex justify-content-start flex-column' >
             <h2> Chefs <span className='badge badge-primary badge-pill'>{chefs.length}</span></h2>
-            <ul className='list-group w-50'>
+            <ul className='list-group'>
             { 
 
                 chefs.map( chef => {
@@ -21,7 +21,7 @@ const Chefs = ({chefs, setChefs, recipes})=> {
                         
                         <li key={chef.id} className='list-group-item list-group-item-primary text-wrap'>
                             <div className='d-flex justify-content-between'>
-                                <span className='chef'>{chef.name}</span>
+                                <a href={`#view=chef&id=${chef.id}`} className='chef'>{chef.name}</a>
                                 
                                 <button className = 'close' aria-label="Close" onClick = {()=>destroy(chef.id)}>X</button>
                                 

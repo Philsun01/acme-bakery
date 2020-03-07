@@ -65,6 +65,11 @@ const destroyRecipe = async(recipeId) => {
     return (await client.query(SQL, [recipeId]))
 }
 
+const updateChef = async(chef) => {
+    const SQL = 'UPDATE chefs SET name = $1 WHERE id = $2 returning *';
+    return (await client.query(SQL, [chef.name, chef.id])).rows[0];
+}
+
 module.exports = {
     sync,
     readChefs,
@@ -72,5 +77,6 @@ module.exports = {
     createChef,
     destroyChef,
     createRecipe,
-    destroyRecipe
+    destroyRecipe,
+    updateChef
 }

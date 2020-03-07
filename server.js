@@ -23,6 +23,12 @@ app.post('/api/chefs', (req, res, next)=> {
         .catch(next);
 });
 
+app.put('/api/chefs/:id', (req, res, next)=> {
+    db.updateChef(req.body)
+        .then(data => res.send(data))
+        .catch(next);
+});
+
 app.post('/api/recipes', (req, res, next)=> {
     db.createRecipe(req.body)
         .then(data => res.send(data))

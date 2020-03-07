@@ -18,11 +18,24 @@ app.get('/api/chefs', (req, res, next)=>{
 });
 
 app.post('/api/chefs', (req, res, next)=> {
-    console.log(req.body);
     db.createChef(req.body)
         .then(data => res.send(data))
         .catch(next);
 });
+
+app.post('/api/recipes', (req, res, next)=> {
+    db.createRecipe(req.body)
+        .then(data => res.send(data))
+        .catch(next);
+});
+
+app.delete('/api/chefs/:id', (req, res, next) => {
+    console.log('deleting');
+    console.log(req.params.id);
+    db.destroyChef(req.params.id)
+        .then( ()=> res.sendStatus(204))
+        .catch(next);
+})
 
 app.get('/api/recipes', (req, res, next)=>{
     db.readRecipes()

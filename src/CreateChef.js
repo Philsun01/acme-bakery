@@ -6,7 +6,7 @@ import axios from 'axios';
 const CreateChef = ({chefs, setChefs})=>{
 
     const [newChef, setNewChef] = useState('New Chef Name');
-    
+    const [error, setError] = useState('');
     const onSubmit = (ev) => {
         ev.preventDefault();
         axios.post('./api/chefs', {name: newChef})
@@ -16,14 +16,19 @@ const CreateChef = ({chefs, setChefs})=>{
     };
 
     return (
-        <div>
+        <div className='card'>
+            <h2>Add New Chef</h2>
              <form onSubmit = {onSubmit}>
-                <label>Chef Name</label>
-                <input type = 'text' 
+                <div className = 'form-group'>
+                    <label>Name</label>
+                    <input className = 'form-control-sm'
+                    type = 'text' 
                     value = {newChef}
-                    onChange = {ev => setNewChef(ev.target.value)}
-                ></input>
-                <button>Add New Chef </button>
+                    onChange = {ev => setNewChef(ev.target.value)} ></input>
+                </div>
+               
+                
+                <button className='btn btn-primary'>Add New Chef </button>
 
             </form>
         </div>

@@ -3,6 +3,7 @@ import Chefs from './chefs';
 import Recipes from './recipes';
 import axios from 'axios';
 import CreateChef from './CreateChef';
+import CreateRecipe from './CreateRecipe';
 
 console.log( 'App file loaded');
 
@@ -11,22 +12,24 @@ const App = ()=> {
     const [chefs, setChefs] = useState([]);
     const [recipes, setRecipes] = useState([]);
 
-    useEffect( ()=>{
+    useEffect(()=>{
         axios.get('/api/chefs')
-            .then( data => setChefs(data.data))
+            .then( (res) => setChefs(res.data))
             .catch( ex => console.log(ex));
         axios.get('./api/recipes')
-            .then( data => setRecipes(data.data))
+            .then( res => setRecipes(res.data))
             .catch( ex => console.log(ex));
 
-    }, [])
 
+    }, [])
+ 
     return (
         <div>
-            <h1>React App Loaded</h1>
-            <Chefs chefs = {chefs}  />
-            <Recipes recipes = {recipes} />
+         
+            <Chefs chefs = {chefs} setChefs ={setChefs} recipes = {recipes} />
+            <Recipes recipes = {recipes} chefs = {chefs}/>
             <CreateChef chefs = {chefs} setChefs = {setChefs} />
+            <CreateRecipe recipes = {recipes} setRecipes = {setRecipes} chefs = {chefs} setChefs = {setChefs} />
 
         </div>
     )

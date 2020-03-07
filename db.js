@@ -48,9 +48,22 @@ const createChef = async(chef) => {
     return (await client.query(SQL,[chef.name])).rows[0];
 }
 
+const createRecipe = async(recipe) => {
+    const SQL = `INSERT INTO recipes(name, "chefId") values($1, $2) returning *`;
+    return (await client.query(SQL,[recipe.name, recipe.chefId])).rows[0];
+}
+
+const destroyChef = async(chefId) => {
+    await client.query(`DELETE FROM recipes WHERE "chefId" = $1`,[chefId]);
+    const SQL = `DELETE FROM chefs WHERE id = $1`;
+    return (await client.query(SQL, [chefId]))
+}
+
 module.exports = {
     sync,
     readChefs,
     readRecipes,
-    createChef
+    createChef,
+    destroyChef,
+    createRecipe
 }

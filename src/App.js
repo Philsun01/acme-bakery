@@ -27,7 +27,7 @@ const App = ()=> {
         <div>
          
             <Chefs chefs = {chefs} setChefs ={setChefs} recipes = {recipes} />
-            <Recipes recipes = {recipes} chefs = {chefs}/>
+            <Recipes recipes = {recipes} chefs = {chefs} setRecipes = {setRecipes}/>
             <CreateChef chefs = {chefs} setChefs = {setChefs} />
             <CreateRecipe recipes = {recipes} setRecipes = {setRecipes} chefs = {chefs} setChefs = {setChefs} />
 

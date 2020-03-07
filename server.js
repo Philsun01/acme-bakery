@@ -30,9 +30,14 @@ app.post('/api/recipes', (req, res, next)=> {
 });
 
 app.delete('/api/chefs/:id', (req, res, next) => {
-    console.log('deleting');
-    console.log(req.params.id);
+
     db.destroyChef(req.params.id)
+        .then( ()=> res.sendStatus(204))
+        .catch(next);
+})
+
+app.delete('/api/recipes/:id', (req, res, next) => {
+    db.destroyRecipe(req.params.id)
         .then( ()=> res.sendStatus(204))
         .catch(next);
 })

@@ -59,11 +59,18 @@ const destroyChef = async(chefId) => {
     return (await client.query(SQL, [chefId]))
 }
 
+const destroyRecipe = async(recipeId) => {
+    
+    const SQL = `DELETE FROM recipes WHERE id = $1`;
+    return (await client.query(SQL, [recipeId]))
+}
+
 module.exports = {
     sync,
     readChefs,
     readRecipes,
     createChef,
     destroyChef,
-    createRecipe
+    createRecipe,
+    destroyRecipe
 }

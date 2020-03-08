@@ -8,6 +8,7 @@ body {
 
 .card {
     width: 20rem;
+    margin: 2rem;
 }
 
 .card-container {

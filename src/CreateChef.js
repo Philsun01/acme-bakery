@@ -20,7 +20,6 @@ const CreateChef = ({chefs, setChefs})=>{
             <h2>Add New Chef</h2>
              <form onSubmit = {onSubmit}>
                 <div className = 'form-group'>
-                    <label>Name</label>
                     <input className = 'form-control-sm'
                     type = 'text' 
                     value = {newChef}

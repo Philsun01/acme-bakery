@@ -16,7 +16,6 @@ const ChefEdit = ({updateChef, chef})=> {
         updateChef({...chef, name});
     };
     
-
     return (
         <div>
             <h2>Chef Edit Form</h2>
@@ -30,9 +29,7 @@ const ChefEdit = ({updateChef, chef})=> {
             </form>
             <a href='#'>Cancel</a>
         </div>
-
     )
-
 }
 
 export default ChefEdit;
